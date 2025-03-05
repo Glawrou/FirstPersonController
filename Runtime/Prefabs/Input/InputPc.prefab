@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c147a9a91a0cc04bb3cb5b18d8accea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SensitivityRotateHead>k__BackingField: 1
+  <SensitivityRotateHead>k__BackingField: 1000
   <InversionAxisY>k__BackingField: 0

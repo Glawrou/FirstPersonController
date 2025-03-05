@@ -1,22 +1,37 @@
 using UnityEngine;
 
-namespace naa.FirstPersonController.Input
+namespace naa.FirstPersonController.PlayerInput
 {
     public class InputPcObserver : InputObserver
     {
-        private const string MoseAsxisKeyX = "Mouse X";
-        private const string MoseAsxisKeyY = "Mouse Y";
+        private const string MouseAsxisKeyX = "Mouse X";
+        private const string MouseAsxisKeyY = "Mouse Y";
+
+        private const string MoveAsxisKeyX = "Horizontal";
+        private const string MoveAsxisKeyY = "Vertical";
 
         private void Update()
         {
-            var mouseDuration = new Vector2(
-                UnityEngine.Input.GetAxis(MoseAsxisKeyX),
-                UnityEngine.Input.GetAxis(MoseAsxisKeyY));
+            MouseInput();
+            MoveInput();
+        }
 
-            if (mouseDuration != Vector2.zero)
-            {
-                RotateHeadInvoke(mouseDuration * SensitivityRotateHead);
-            }
+        private void MouseInput()
+        {
+            var mouseDuration = new Vector2(
+                Input.GetAxis(MouseAsxisKeyX),
+                Input.GetAxis(MouseAsxisKeyY));
+
+            RotateInvoke(mouseDuration * SensitivityRotateHead);
+        }
+
+        private void MoveInput()
+        {
+            var moveDuration = new Vector2(
+                Input.GetAxis(MoveAsxisKeyX),
+                Input.GetAxis(MoveAsxisKeyY));
+
+            MoveInvoke(moveDuration);
         }
     }
 }
