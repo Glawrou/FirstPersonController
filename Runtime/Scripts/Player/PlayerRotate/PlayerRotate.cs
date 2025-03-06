@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace naa.FirstPersonController.Player
 {
-    public class PlayerHead : MonoBehaviour
+    public class PlayerRotate : MonoBehaviour
     {
         [SerializeField] private RangeRotateHead _rangeRotate;
 

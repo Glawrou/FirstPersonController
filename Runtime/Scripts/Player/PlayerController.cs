@@ -9,7 +9,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerParameters _playerParameters;
 
         [Space]
-        [SerializeField] private PlayerHead _playerHead;
+        [SerializeField] private PlayerRotate _playerHead;
         [SerializeField] private PlayerMove _playerMove;
 
         private void Awake()
