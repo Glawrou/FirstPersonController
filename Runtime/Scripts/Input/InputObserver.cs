@@ -7,6 +7,7 @@ namespace naa.FirstPersonController.PlayerInput
     {
         public event Action<Vector2> OnRotate;
         public event Action<Vector2> OnMove;
+        public event Action OnJump;
 
         [field: SerializeField] public float SensitivityRotateHead { get; set; }
         [field: SerializeField] public bool InversionAxisY { get; set; }
@@ -20,6 +21,11 @@ namespace naa.FirstPersonController.PlayerInput
         protected void MoveInvoke(Vector2 vector)
         {
             OnMove?.Invoke(vector);
+        }
+
+        protected void JumpInvoke()
+        {
+            OnJump?.Invoke();
         }
     }
 }

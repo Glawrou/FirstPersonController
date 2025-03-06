@@ -4,6 +4,9 @@ namespace naa.FirstPersonController.PlayerInput
 {
     public class InputPcObserver : InputObserver
     {
+        [Header("Keys")]
+        [SerializeField] private KeyCode _keyJump;
+
         private const string MouseAsxisKeyX = "Mouse X";
         private const string MouseAsxisKeyY = "Mouse Y";
 
@@ -14,6 +17,7 @@ namespace naa.FirstPersonController.PlayerInput
         {
             MouseInput();
             MoveInput();
+            JumpInput();
         }
 
         private void MouseInput()
@@ -32,6 +36,14 @@ namespace naa.FirstPersonController.PlayerInput
                 Input.GetAxis(MoveAsxisKeyY));
 
             MoveInvoke(moveDuration);
+        }
+
+        private void JumpInput()
+        {
+            if (Input.GetKeyDown(_keyJump))
+            {
+                JumpInvoke();
+            }
         }
     }
 }
