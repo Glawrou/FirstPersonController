@@ -8,5 +8,11 @@
     "author": {
       "name": "Nosov Andrey",
       "email": "nosov.and1997@gmail.com"
-    }
+    },
+    "samples": [
+    {
+      "displayName": "Basic Demo",
+      "description": "Basic prefabs and scene for the First Person Controller.",
+      "path": "Samples/BasicDemo"
+    },
   }
