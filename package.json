@@ -3,10 +3,17 @@
     "version": "0.0.1",
     "displayName": "First Person Controller",
     "description": "The basis for a first-person video game.",
-    "unity": "2022.3.41f1",
+    "unity": "2022.3",
     "dependencies": {},
     "author": {
       "name": "Nosov Andrey",
       "email": "nosov.and1997@gmail.com"
-    }
+    },
+    "samples": [
+      {
+        "displayName": "Basic Demo",
+        "description": "Basic prefabs and scene for the First Person Controller.",
+        "path": "Samples/BasicDemo"
+      }
+    ]
   }
