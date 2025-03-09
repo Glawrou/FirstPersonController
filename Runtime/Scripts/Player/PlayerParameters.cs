@@ -3,7 +3,9 @@ using System;
 [Serializable]
 public class PlayerParameters
 {
-    public float MoveSpeed;
-    public float ForceJump;
-    public bool IsDoubleJump;
+    public float MoveSpeed = 5;
+    public float RunFactor = 1.5f;
+    public float Stamina = 10;
+    public float ForceJump = 5;
+    public bool IsDoubleJump = false;
 }

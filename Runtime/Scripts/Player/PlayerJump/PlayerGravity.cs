@@ -6,8 +6,8 @@ namespace naa.FirstPersonController.Player
     {
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private PlayerTriggerGround _playerTriggerGround;
-        [SerializeField] private float _gravityFactor = 6.4f;
-        [SerializeField] private float _gravityMax = 9.8f;
+        [SerializeField] private float _gravityFactor = 16f;
+        [SerializeField] private float _gravityMax = 20f;
 
         private float _verticalVelocity;
 

@@ -18,6 +18,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnRotate += RotateHandler;
             _inputObserver.OnMove += MoveHandler;
             _inputObserver.OnJump += JumpHandler;
+            _inputObserver.OnRun += RunHandler;
         }
 
         private void Start()
@@ -37,6 +38,11 @@ namespace naa.FirstPersonController.Player
             _playerMove.Move(direction);
         }
 
+        public void RunHandler(bool isRun)
+        {
+            _playerMove.IsRun = isRun;
+        }
+
         public void JumpHandler()
         {
             _playerJump.Jump();
@@ -47,6 +53,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnRotate -= RotateHandler;
             _inputObserver.OnMove -= MoveHandler;
             _inputObserver.OnJump -= JumpHandler;
+            _inputObserver.OnRun -= RunHandler;
         }
     }
 }

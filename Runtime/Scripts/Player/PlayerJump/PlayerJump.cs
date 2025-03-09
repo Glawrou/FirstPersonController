@@ -20,6 +20,12 @@ namespace naa.FirstPersonController.Player
 
         public void Jump()
         {
+            if (_playerParameters == null)
+            {
+                Debug.LogError("naa >> FirstPersonController >> Player >> PlayerJump >> (_playerParameters == NULL)");
+                return;
+            }
+
             if (!_playerTriggerGround.IsGrounded && !_playerParameters.IsDoubleJump)
             {
                 return;

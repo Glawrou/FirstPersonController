@@ -47,3 +47,4 @@ MonoBehaviour:
   <SensitivityRotateHead>k__BackingField: 1000
   <InversionAxisY>k__BackingField: 0
   _keyJump: 32
+  _keyRun: 304

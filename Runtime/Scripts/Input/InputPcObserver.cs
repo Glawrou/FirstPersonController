@@ -6,6 +6,7 @@ namespace naa.FirstPersonController.PlayerInput
     {
         [Header("Keys")]
         [SerializeField] private KeyCode _keyJump;
+        [SerializeField] private KeyCode _keyRun;
 
         private const string MouseAsxisKeyX = "Mouse X";
         private const string MouseAsxisKeyY = "Mouse Y";
@@ -17,6 +18,7 @@ namespace naa.FirstPersonController.PlayerInput
         {
             MouseInput();
             MoveInput();
+            RunInput();
             JumpInput();
         }
 
@@ -43,6 +45,18 @@ namespace naa.FirstPersonController.PlayerInput
             if (Input.GetKeyDown(_keyJump))
             {
                 JumpInvoke();
+            }
+        }
+
+        private void RunInput()
+        {
+            if (Input.GetKeyDown(_keyRun))
+            {
+                RunInvoke(true);
+            }
+            else if (Input.GetKeyUp(_keyRun))
+            {
+                RunInvoke(false);
             }
         }
     }
