@@ -5,6 +5,7 @@ namespace naa.FirstPersonController.Player
     public class PlayerGravity : MonoBehaviour
     {
         [SerializeField] private CharacterController _characterController;
+        [SerializeField] private PlayerTriggerGround _playerTriggerGround;
         [SerializeField] private float _gravityFactor = 6.4f;
         [SerializeField] private float _gravityMax = 9.8f;
 
@@ -12,7 +13,7 @@ namespace naa.FirstPersonController.Player
 
         private void Update()
         {
-            if (_characterController.isGrounded)
+            if (_playerTriggerGround.IsGrounded)
             {
                 _verticalVelocity = 0;
             }

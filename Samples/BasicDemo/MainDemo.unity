@@ -1816,6 +1816,8 @@ MonoBehaviour:
   _inputObserver: {fileID: 909586721}
   _playerParameters:
     MoveSpeed: 5
+    ForceJump: 5
+    IsDoubleJump: 0
   _playerRotate: {fileID: 398944959}
   _playerMove: {fileID: 1564685799}
   _playerJump: {fileID: 1564685803}
@@ -1831,8 +1833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88eefcfa05787fd47b8ae82f9b8d0fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundTrigger: {fileID: 1081319689}
   _characterController: {fileID: 1564685795}
+  _playerTriggerGround: {fileID: 1081319689}
   _gravityFactor: 16
   _gravityMax: 20
 --- !u!114 &1564685803
@@ -1849,9 +1851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerGravity: {fileID: 1564685802}
   _characterController: {fileID: 1564685795}
-  _forceJump: 0.1
-  _gravityVelocity: -5
-  _isDoubleJump: 0
+  _playerTriggerGround: {fileID: 1081319689}
 --- !u!1 &1571768485
 GameObject:
   m_ObjectHideFlags: 0

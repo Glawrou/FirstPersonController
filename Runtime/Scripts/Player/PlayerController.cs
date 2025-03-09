@@ -23,6 +23,7 @@ namespace naa.FirstPersonController.Player
         private void Start()
         {
             _playerMove.Init(_playerParameters);
+            _playerJump.Init(_playerParameters);
         }
 
         public void RotateHandler(Vector2 vector)

@@ -4,7 +4,7 @@ namespace naa.FirstPersonController.Player
 {
     public class PlayerTriggerGround : MonoBehaviour
     {
-        public bool IsGround { get; private set; }
+        public bool IsGrounded { get; private set; }
         public Ground CurrentGround { get; private set; }
 
         [SerializeField] private LayerMask _layerMaskTrigger;
@@ -13,7 +13,7 @@ namespace naa.FirstPersonController.Player
         private void Update()
         {
             var colliders = Physics.OverlapSphere(transform.position, _radiusTrigger, _layerMaskTrigger);
-            IsGround = GetGround(colliders);
+            IsGrounded = GetGround(colliders);
         }
 
         private bool GetGround(Collider[] colliders)
