@@ -633,7 +633,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398944954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   _layerMaskTrigger:
     serializedVersion: 2
     m_Bits: 4294967295
-  _radiusTrigger: 0.1
+  _radiusTrigger: 0.3
 --- !u!1 &1417952778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,7 +1704,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564685794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

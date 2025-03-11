@@ -9,13 +9,15 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private float _gravityFactor = 16f;
         [SerializeField] private float _gravityMax = 20f;
 
+        private const float DefaultVelocity = 2f;
+
         private float _verticalVelocity;
 
         private void Update()
         {
             if (_playerTriggerGround.IsGrounded)
             {
-                _verticalVelocity = 0;
+                _verticalVelocity = DefaultVelocity;
             }
 
             SetVelocity(_verticalVelocity + _gravityFactor * Time.deltaTime);
