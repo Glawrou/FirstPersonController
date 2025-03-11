@@ -48,3 +48,4 @@ MonoBehaviour:
   <InversionAxisY>k__BackingField: 0
   _keyJump: 32
   _keyRun: 304
+  _keySneaking: 306

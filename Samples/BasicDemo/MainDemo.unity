@@ -1793,6 +1793,7 @@ MonoBehaviour:
   _playerParameters:
     MoveSpeed: 5
     RunFactor: 1.5
+    SneakingFactor: 0.4
     Stamina: 1
     ForceJump: 5
     IsDoubleJump: 0

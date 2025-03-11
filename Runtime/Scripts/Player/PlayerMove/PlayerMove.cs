@@ -5,6 +5,7 @@ namespace naa.FirstPersonController.Player
     public class PlayerMove : MonoBehaviour
     {
         public bool IsRun { get; set; }
+        public bool IsSneaking { get; set; } 
 
         [SerializeField] private CharacterController _characterController;
 
@@ -12,7 +13,7 @@ namespace naa.FirstPersonController.Player
         private const float RemoveFactorStamina = 1f;
 
         private float _stamina;
-        private float _runFactor;
+        private float _moveFactor;
         private bool _isMotionNow;
         private bool _isStaminaBlocked = false;
         private PlayerParameters _playerParameters;
@@ -25,16 +26,7 @@ namespace naa.FirstPersonController.Player
 
         private void Update()
         {
-            _runFactor = 1f;
-            if (IsRun && _isMotionNow && !_isStaminaBlocked && RemoveStamina())
-            {
-                _runFactor = _playerParameters.RunFactor;
-            }
-            else
-            {
-                AddStamina();
-                _runFactor = 1f;
-            }
+            UpdateMoveFactor();
         }
 
         public void Move(Vector3 vector)
@@ -47,7 +39,7 @@ namespace naa.FirstPersonController.Player
 
             _isMotionNow = vector != Vector3.zero;
             vector.y = 0;
-            _characterController.Move(vector.normalized * _playerParameters.MoveSpeed * _runFactor * Time.deltaTime);
+            _characterController.Move(vector.normalized * _playerParameters.MoveSpeed * _moveFactor * Time.deltaTime);
         }
 
         public float GetStamina()
@@ -59,6 +51,25 @@ namespace naa.FirstPersonController.Player
             }
 
             return _stamina / _playerParameters.Stamina;
+        }
+
+        private void UpdateMoveFactor()
+        {
+            _moveFactor = 1f;
+            if (IsSneaking)
+            {
+                AddStamina();
+                _moveFactor = _playerParameters.SneakingFactor;
+            }
+            else if (IsRun && _isMotionNow && !_isStaminaBlocked && RemoveStamina())
+            {
+                _moveFactor = _playerParameters.RunFactor;
+            }
+            else
+            {
+                AddStamina();
+                _moveFactor = 1f;
+            }
         }
 
         private void AddStamina()

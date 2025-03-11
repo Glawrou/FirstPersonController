@@ -19,6 +19,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnMove += MoveHandler;
             _inputObserver.OnJump += JumpHandler;
             _inputObserver.OnRun += RunHandler;
+            _inputObserver.OnSneaking += SnakingHandler;
         }
 
         private void Start()
@@ -27,23 +28,28 @@ namespace naa.FirstPersonController.Player
             _playerJump.Init(_playerParameters);
         }
 
-        public void RotateHandler(Vector2 vector)
+        private void RotateHandler(Vector2 vector)
         {
             _playerRotate.Rotate(vector);
         }
 
-        public void MoveHandler(Vector2 vector)
+        private void MoveHandler(Vector2 vector)
         {
             var direction = vector.y * _playerRotate.transform.forward + vector.x * _playerRotate.transform.right;
             _playerMove.Move(direction);
         }
 
-        public void RunHandler(bool isRun)
+        private void RunHandler(bool isRun)
         {
             _playerMove.IsRun = isRun;
         }
 
-        public void JumpHandler()
+        private void SnakingHandler(bool isSnaking)
+        {
+            _playerMove.IsSneaking = isSnaking;
+        }
+
+        private void JumpHandler()
         {
             _playerJump.Jump();
         }
@@ -54,6 +60,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnMove -= MoveHandler;
             _inputObserver.OnJump -= JumpHandler;
             _inputObserver.OnRun -= RunHandler;
+            _inputObserver.OnSneaking -= SnakingHandler;
         }
     }
 }

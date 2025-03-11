@@ -8,6 +8,7 @@ namespace naa.FirstPersonController.PlayerInput
         public event Action<Vector2> OnRotate;
         public event Action<Vector2> OnMove;
         public event Action<bool> OnRun;
+        public event Action<bool> OnSneaking;
         public event Action OnJump;
 
         [field: SerializeField] public float SensitivityRotateHead { get; set; }
@@ -27,6 +28,11 @@ namespace naa.FirstPersonController.PlayerInput
         protected void RunInvoke(bool isRun)
         {
             OnRun?.Invoke(isRun);
+        }
+
+        protected void SneakingInvoke(bool isRun)
+        {
+            OnSneaking?.Invoke(isRun);
         }
 
         protected void JumpInvoke()
