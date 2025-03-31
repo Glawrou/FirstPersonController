@@ -9,6 +9,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerParameters _playerParameters;
 
         [Space]
+        [SerializeField] private PlayerFieldView _playerFieldView;
         [SerializeField] private PlayerRotate _playerRotate;
         [SerializeField] private PlayerMove _playerMove;
         [SerializeField] private PlayerJump _playerJump;
@@ -41,6 +42,7 @@ namespace naa.FirstPersonController.Player
 
         private void RunHandler(bool isRun)
         {
+            _playerFieldView.SetRun(isRun);
             _playerMove.IsRun = isRun;
         }
 
