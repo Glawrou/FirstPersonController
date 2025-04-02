@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace naa.FirstPersonController.Player
 {
-    public class PlayerFieldView : MonoBehaviour
+    public class CameraFieldView : MonoBehaviour
     {
         [SerializeField] private Camera _playerCamera;
 
