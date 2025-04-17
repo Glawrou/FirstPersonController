@@ -52,13 +52,11 @@ namespace naa.FirstPersonController.Player
         {
             _playerCameraView.SetRun(isRun);
             _playerBodyMove.IsRun = isRun;
-            _playerAnimation.SetRun(isRun);
         }
 
         private void SnakingHandler(bool isSnaking)
         {
             _playerBodyMove.IsSneaking = isSnaking;
-            _playerAnimation.SetSneaking(isSnaking);
         }
 
         private void JumpHandler()

@@ -8,12 +8,14 @@ namespace naa.FirstPersonController.Player
         public Ground CurrentGround { get; private set; }
 
         [SerializeField] private LayerMask _layerMaskTrigger;
+        [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private float _radiusTrigger = 0.1f;
 
         public void CalculateGround()
         {
             var colliders = Physics.OverlapSphere(transform.position, _radiusTrigger, _layerMaskTrigger);
             IsGrounded = GetGround(colliders);
+            _playerAnimation.SetInAir(!IsGrounded);
         }
 
         private bool GetGround(Collider[] colliders)

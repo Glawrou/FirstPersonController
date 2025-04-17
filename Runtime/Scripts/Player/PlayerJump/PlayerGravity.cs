@@ -9,7 +9,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private float _gravityFactor = 16f;
         [SerializeField] private float _gravityMax = 20f;
 
-        private const float DefaultVelocity = 0.2f;
+        private const float DefaultVelocity = 2f;
 
         private float _verticalVelocity;
 

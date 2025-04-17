@@ -8,6 +8,7 @@ namespace naa.FirstPersonController.Player
         public bool IsSneaking { get; set; }
 
         [SerializeField] private CharacterController _characterController;
+        [SerializeField] private PlayerAnimation _playerAnimation;
 
         private const float AddFactorStamina = 0.3f;
         private const float RemoveFactorStamina = 1f;
@@ -26,7 +27,9 @@ namespace naa.FirstPersonController.Player
 
         private void Update()
         {
-            UpdateMoveFactor();
+            var moveType = GetMoveType();
+            UpdateMoveFactor(moveType);
+            UpdateMoveAnimation(moveType);
         }
 
         public void Rotate(float yAxis)
@@ -60,23 +63,41 @@ namespace naa.FirstPersonController.Player
             return _stamina / _playerParameters.Stamina;
         }
 
-        private void UpdateMoveFactor()
+        private void UpdateMoveFactor(MoveType moveType)
         {
-            _moveFactor = 1f;
+            switch (moveType)
+            {
+                case MoveType.Sneaking:
+                    AddStamina();
+                    _moveFactor = _playerParameters.SneakingFactor;
+                    break;
+                case MoveType.Runing:
+                    _moveFactor = _playerParameters.RunFactor;
+                    break;
+                default:
+                    AddStamina();
+                    _moveFactor = 1f;
+                    break;
+            }
+        }
+
+        private void UpdateMoveAnimation(MoveType moveType)
+        {
+            _playerAnimation.SetMoveType(moveType);
+        }
+
+        private MoveType GetMoveType()
+        {
             if (IsSneaking)
             {
-                AddStamina();
-                _moveFactor = _playerParameters.SneakingFactor;
+                return MoveType.Sneaking;
             }
             else if (IsRun && _isMotionNow && !_isStaminaBlocked && RemoveStamina())
             {
-                _moveFactor = _playerParameters.RunFactor;
+                return MoveType.Runing;
             }
-            else
-            {
-                AddStamina();
-                _moveFactor = 1f;
-            }
+
+            return MoveType.Walking;
         }
 
         private void AddStamina()

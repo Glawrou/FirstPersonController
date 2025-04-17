@@ -6,25 +6,36 @@ namespace naa.FirstPersonController.Player
     {
         [SerializeField] private Animator _animator;
 
-        private const string IsMoveKey = "IsMove";
-        private const string IsRunKey = "IsRun";
-        private const string IsSneakingKey = "IsSneaking";
+        private const string TriggerJump = "Jump";
+        private const string IsInAirKey = "IsInAir";
+        private const string MoveTypeKey = "MoveType";
         private const string MoveYKey = "MoveY";
         private const string MoveXKey = "MoveX";
 
-        public void SetSneaking(bool isSneaking)
+        private bool _isInAir = false;
+
+        public void SetMoveType(MoveType moveType)
         {
-            _animator.SetBool(IsSneakingKey, isSneaking);
+            _animator.SetInteger(MoveTypeKey, (int)moveType);
         }
 
-        public void SetRun(bool isRun)
+        public void SetInAir(bool isInAir)
         {
-            _animator.SetBool(IsRunKey, isRun);
+            if (_isInAir == isInAir)
+            {
+                return; 
+            }
+
+            _isInAir = isInAir;
+            _animator.SetBool(IsInAirKey, isInAir);
+            if (_isInAir)
+            {
+                _animator.SetTrigger(TriggerJump);
+            }
         }
 
         public void SetMove(Vector2 vector)
         {
-            _animator.SetBool(IsMoveKey, vector.magnitude != 0);
             _animator.SetFloat(MoveYKey, vector.y);
             _animator.SetFloat(MoveXKey, vector.x);
         }

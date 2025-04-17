@@ -570,7 +570,7 @@ Transform:
   m_GameObject: {fileID: 2575325157221142450}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -591,7 +591,8 @@ MonoBehaviour:
   _layerMaskTrigger:
     serializedVersion: 2
     m_Bits: 4294967295
-  _radiusTrigger: 0.2
+  _playerAnimation: {fileID: 7679431780391251150}
+  _radiusTrigger: 0.25
 --- !u!1 &2615023352871987604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rangeRotate:
     <MinVerticalLimit>k__BackingField: -85
-    <MaxVerticalLimit>k__BackingField: 85
+    <MaxVerticalLimit>k__BackingField: 80
   _headTransform: {fileID: 7828110835780317924}
 --- !u!1 &5623643106360490656
 GameObject:
@@ -2350,12 +2351,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputObserver: {fileID: 0}
   _playerParameters:
-    MoveSpeed: 0
+    MoveSpeed: 2
     RunFactor: 2.5
     SneakingFactor: 0.4
     Stamina: 1
     ForceJump: 5
-    IsDoubleJump: 1
+    IsDoubleJump: 0
   _playerCameraView: {fileID: 6798007177432313741}
   _playerHeadRotate: {fileID: 4023449943959648446}
   _playerBodyMove: {fileID: 7330270690389226563}
@@ -2374,6 +2375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 7805965169047610063}
+  _playerAnimation: {fileID: 7679431780391251150}
 --- !u!114 &1137728203277905262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,7 +2433,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cb3f062073699e74dae422199e0728ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
