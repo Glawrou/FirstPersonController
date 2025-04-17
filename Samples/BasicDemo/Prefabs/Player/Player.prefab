@@ -2350,8 +2350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputObserver: {fileID: 0}
   _playerParameters:
-    MoveSpeed: 2
-    RunFactor: 1.5
+    MoveSpeed: 0
+    RunFactor: 2.5
     SneakingFactor: 0.4
     Stamina: 1
     ForceJump: 5
@@ -2431,7 +2431,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cb3f062073699e74dae422199e0728ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
