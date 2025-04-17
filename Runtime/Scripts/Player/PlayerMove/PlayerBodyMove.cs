@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace naa.FirstPersonController.Player
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerBodyMove : MonoBehaviour
     {
         public bool IsRun { get; set; }
         public bool IsSneaking { get; set; } 
@@ -27,6 +27,13 @@ namespace naa.FirstPersonController.Player
         private void Update()
         {
             UpdateMoveFactor();
+        }
+
+        public void Rotate(float yAxis)
+        {
+            var currentRotation = _characterController.transform.rotation.eulerAngles;
+            var newRotateEuler = currentRotation + new Vector3(0, yAxis, 0f) * Time.deltaTime;
+            _characterController.transform.rotation = Quaternion.Euler(newRotateEuler);
         }
 
         public void Move(Vector3 vector)

@@ -10,7 +10,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private LayerMask _layerMaskTrigger;
         [SerializeField] private float _radiusTrigger = 0.1f;
 
-        private void Update()
+        public void CalculateGround()
         {
             var colliders = Physics.OverlapSphere(transform.position, _radiusTrigger, _layerMaskTrigger);
             IsGrounded = GetGround(colliders);

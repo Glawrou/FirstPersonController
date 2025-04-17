@@ -8,7 +8,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private PlayerTriggerGround _playerTriggerGround;
 
-        private const float OffsetUp = 0.35f;
+        private const float OffsetUp = 0.25f;
 
         private bool _isThereSecondJump;
         private PlayerParameters _playerParameters;

@@ -10,8 +10,8 @@ namespace naa.FirstPersonController.Player
 
         [Space]
         [SerializeField] private PlayerCameraView _playerCameraView;
-        [SerializeField] private PlayerRotate _playerRotate;
-        [SerializeField] private PlayerMove _playerMove;
+        [SerializeField] private PlayerHeadRotate _playerHeadRotate;
+        [SerializeField] private PlayerBodyMove _playerBodyMove;
         [SerializeField] private PlayerJump _playerJump;
 
         private void Awake()
@@ -25,35 +25,36 @@ namespace naa.FirstPersonController.Player
 
         private void Start()
         {
-            _playerMove.Init(_playerParameters);
+            _playerBodyMove.Init(_playerParameters);
             _playerJump.Init(_playerParameters);
         }
 
         private void Update()
         {
-            _playerCameraView.SetStaminaView(_playerMove.GetStamina());
+            _playerCameraView.SetStaminaView(_playerBodyMove.GetStamina());
         }
 
         private void RotateHandler(Vector2 vector)
         {
-            _playerRotate.Rotate(vector);
+            _playerHeadRotate.Rotate(vector);
+            _playerBodyMove.Rotate(vector.x);
         }
 
         private void MoveHandler(Vector2 vector)
         {
-            var direction = vector.y * _playerRotate.transform.forward + vector.x * _playerRotate.transform.right;
-            _playerMove.Move(direction);
+            var direction = vector.y * _playerHeadRotate.transform.forward + vector.x * _playerHeadRotate.transform.right;
+            _playerBodyMove.Move(direction);
         }
 
         private void RunHandler(bool isRun)
         {
             _playerCameraView.SetRun(isRun);
-            _playerMove.IsRun = isRun;
+            _playerBodyMove.IsRun = isRun;
         }
 
         private void SnakingHandler(bool isSnaking)
         {
-            _playerMove.IsSneaking = isSnaking;
+            _playerBodyMove.IsSneaking = isSnaking;
         }
 
         private void JumpHandler()
