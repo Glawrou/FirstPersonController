@@ -22,6 +22,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnJump += JumpHandler;
             _inputObserver.OnRun += RunHandler;
             _inputObserver.OnSneaking += SnakingHandler;
+            _inputObserver.OnUse += UseHandler;
         }
 
         private void Start()
@@ -64,6 +65,11 @@ namespace naa.FirstPersonController.Player
             _playerJump.Jump();
         }
 
+        private void UseHandler()
+        {
+            _playerAnimation.SetTriggerUse();
+        }
+
         private void OnDestroy()
         {
             _inputObserver.OnRotate -= RotateHandler;
@@ -71,6 +77,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnJump -= JumpHandler;
             _inputObserver.OnRun -= RunHandler;
             _inputObserver.OnSneaking -= SnakingHandler;
+            _inputObserver.OnUse -= UseHandler;
         }
     }
 }

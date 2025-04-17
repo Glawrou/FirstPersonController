@@ -10,6 +10,7 @@ namespace naa.FirstPersonController.PlayerInput
         public event Action<bool> OnRun;
         public event Action<bool> OnSneaking;
         public event Action OnJump;
+        public event Action OnUse;
 
         [field: SerializeField] public float SensitivityRotateHead { get; set; }
         [field: SerializeField] public bool InversionAxisY { get; set; }
@@ -38,6 +39,11 @@ namespace naa.FirstPersonController.PlayerInput
         protected void JumpInvoke()
         {
             OnJump?.Invoke();
+        }
+
+        protected void UseInvoke()
+        {
+            OnUse?.Invoke();
         }
     }
 }

@@ -49,3 +49,4 @@ MonoBehaviour:
   _keyJump: 32
   _keyRun: 304
   _keySneaking: 306
+  _keyUse: 101

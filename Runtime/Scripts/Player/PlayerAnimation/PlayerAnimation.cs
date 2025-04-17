@@ -7,12 +7,18 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private Animator _animator;
 
         private const string TriggerJump = "Jump";
+        private const string TriggerUse = "Use";
         private const string IsInAirKey = "IsInAir";
         private const string MoveTypeKey = "MoveType";
         private const string MoveYKey = "MoveY";
         private const string MoveXKey = "MoveX";
 
         private bool _isInAir = false;
+
+        public void SetTriggerUse()
+        {
+            _animator.SetTrigger(TriggerUse);
+        }
 
         public void SetMoveType(MoveType moveType)
         {

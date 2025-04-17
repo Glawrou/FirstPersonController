@@ -8,6 +8,7 @@ namespace naa.FirstPersonController.PlayerInput
         [SerializeField] private KeyCode _keyJump;
         [SerializeField] private KeyCode _keyRun;
         [SerializeField] private KeyCode _keySneaking;
+        [SerializeField] private KeyCode _keyUse;
 
         private const string MouseAsxisKeyX = "Mouse X";
         private const string MouseAsxisKeyY = "Mouse Y";
@@ -22,6 +23,7 @@ namespace naa.FirstPersonController.PlayerInput
             RunInput();
             SneakingInput();
             JumpInput();
+            UseInput();
         }
 
         private void MouseInput()
@@ -71,6 +73,14 @@ namespace naa.FirstPersonController.PlayerInput
             else if (Input.GetKeyUp(_keyRun))
             {
                 RunInvoke(false);
+            }
+        }
+
+        private void UseInput()
+        {
+            if (Input.GetKeyDown(_keyUse))
+            {
+                UseInvoke();
             }
         }
     }
