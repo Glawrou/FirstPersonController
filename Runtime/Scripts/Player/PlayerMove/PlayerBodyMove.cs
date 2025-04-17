@@ -5,7 +5,7 @@ namespace naa.FirstPersonController.Player
     public class PlayerBodyMove : MonoBehaviour
     {
         public bool IsRun { get; set; }
-        public bool IsSneaking { get; set; } 
+        public bool IsSneaking { get; set; }
 
         [SerializeField] private CharacterController _characterController;
 

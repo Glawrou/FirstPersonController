@@ -13,6 +13,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerHeadRotate _playerHeadRotate;
         [SerializeField] private PlayerBodyMove _playerBodyMove;
         [SerializeField] private PlayerJump _playerJump;
+        [SerializeField] private PlayerAnimation _playerAnimation;
 
         private void Awake()
         {
@@ -44,6 +45,7 @@ namespace naa.FirstPersonController.Player
         {
             var direction = vector.y * _playerHeadRotate.transform.forward + vector.x * _playerHeadRotate.transform.right;
             _playerBodyMove.Move(direction);
+            _playerAnimation.SetMove(vector);
         }
 
         private void RunHandler(bool isRun)

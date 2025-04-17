@@ -28,12 +28,5 @@ namespace naa.FirstPersonController.Player
         {
             _verticalVelocity = Mathf.Clamp(value, float.MinValue, _gravityMax);
         }
-
-#if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUI.TextArea(new Rect(Vector2.zero, new Vector2(150, 20)), $"GravityValue: {Mathf.RoundToInt(_verticalVelocity)}");
-        }
-#endif
     }
 }

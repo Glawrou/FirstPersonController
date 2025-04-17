@@ -5,6 +5,12 @@ namespace naa.FirstPersonController.Player
     public class PlayerHeadRotate : MonoBehaviour
     {
         [SerializeField] private RangeRotateHead _rangeRotate;
+        [SerializeField] private Transform _headTransform;
+
+        private void Update()
+        {
+            transform.position = _headTransform.position;
+        }
 
         public void Rotate(Vector2 vector)
         {
