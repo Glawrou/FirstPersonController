@@ -9,6 +9,8 @@ namespace naa.FirstPersonController.Player
 
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private PlayerAnimation _playerAnimation;
+        [SerializeField] private PlayerCharaterSetting _playerCharaterSetting;
+        [SerializeField] private PlayerTriggerUp _triggerUp;
 
         private const float AddFactorStamina = 0.3f;
         private const float RemoveFactorStamina = 1f;
@@ -30,6 +32,7 @@ namespace naa.FirstPersonController.Player
             var moveType = GetMoveType();
             UpdateMoveFactor(moveType);
             UpdateMoveAnimation(moveType);
+            UpdatePlayerCharacterSettings(moveType);
         }
 
         public void Rotate(float yAxis)
@@ -86,9 +89,14 @@ namespace naa.FirstPersonController.Player
             _playerAnimation.SetMoveType(moveType);
         }
 
+        private void UpdatePlayerCharacterSettings(MoveType moveType)
+        {
+            _playerCharaterSetting.Set(moveType);
+        }
+
         private MoveType GetMoveType()
         {
-            if (IsSneaking)
+            if (IsSneaking || _triggerUp.IsUp)
             {
                 return MoveType.Sneaking;
             }

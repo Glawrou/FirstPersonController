@@ -2,34 +2,38 @@ using UnityEngine;
 
 namespace naa.FirstPersonController.Player
 {
-    public class PlayerTriggerGround : MonoBehaviour
+    public class PlayerTriggerUp : MonoBehaviour
     {
-        public bool IsGrounded { get; private set; }
-        public Ground CurrentGround { get; private set; }
+        public bool IsUp { get; private set; }
 
         [SerializeField] private LayerMask _layerMaskTrigger;
-        [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private float _radiusTrigger = 0.25f;
+
+        private void Update()
+        {
+            CalculateGround();
+        }
 
         public void CalculateGround()
         {
             var colliders = Physics.OverlapSphere(transform.position, _radiusTrigger, _layerMaskTrigger);
-            IsGrounded = GetGround(colliders);
-            _playerAnimation.SetInAir(!IsGrounded);
+            IsUp = GetGround(colliders);
         }
 
         private bool GetGround(Collider[] colliders)
         {
             foreach (var collider in colliders)
             {
-                if (collider.TryGetComponent<Ground>(out var ground))
+                if (collider.TryGetComponent<PlayerController>(out var player))
                 {
-                    CurrentGround = ground;
+                    return false;
+                }
+                else
+                {
                     return true;
                 }
             }
 
-            CurrentGround = null;
             return false;
         }
     }
