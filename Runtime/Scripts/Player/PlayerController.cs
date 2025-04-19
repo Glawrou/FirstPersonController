@@ -14,6 +14,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerBodyMove _playerBodyMove;
         [SerializeField] private PlayerJump _playerJump;
         [SerializeField] private PlayerAnimation _playerAnimation;
+        [SerializeField] private PlayerSound _playerSound;
 
         private void Awake()
         {
@@ -23,6 +24,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnRun += RunHandler;
             _inputObserver.OnSneaking += SnakingHandler;
             _inputObserver.OnUse += UseHandler;
+            _playerAnimation.OnStep += StepHandler;
         }
 
         private void Start()
@@ -70,6 +72,11 @@ namespace naa.FirstPersonController.Player
             _playerAnimation.SetTriggerUse();
         }
 
+        private void StepHandler(float value)
+        {
+            _playerSound.PlayStep(value);
+        }
+
         private void OnDestroy()
         {
             _inputObserver.OnRotate -= RotateHandler;
@@ -78,6 +85,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnRun -= RunHandler;
             _inputObserver.OnSneaking -= SnakingHandler;
             _inputObserver.OnUse -= UseHandler;
+            _playerAnimation.OnStep -= StepHandler;
         }
     }
 }

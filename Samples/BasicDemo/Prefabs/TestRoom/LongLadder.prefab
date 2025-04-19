@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247ce142925c1384e97799c2339a2539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <GroundKey>k__BackingField: 
+  <GroundKey>k__BackingField: Stone
 --- !u!33 &1816174656186627448
 MeshFilter:
   m_ObjectHideFlags: 0

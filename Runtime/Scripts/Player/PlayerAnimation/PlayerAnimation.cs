@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace naa.FirstPersonController.Player
 {
     public class PlayerAnimation : MonoBehaviour
     {
+        public event Action<float> OnStep;
+
         [SerializeField] private Animator _animator;
 
         private const string TriggerJump = "Jump";
@@ -44,6 +47,11 @@ namespace naa.FirstPersonController.Player
         {
             _animator.SetFloat(MoveYKey, vector.y);
             _animator.SetFloat(MoveXKey, vector.x);
+        }
+        
+        public void AnimStepHandler(float value)
+        {
+            OnStep?.Invoke(value);
         }
     }
 }
