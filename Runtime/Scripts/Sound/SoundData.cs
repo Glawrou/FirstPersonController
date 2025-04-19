@@ -4,7 +4,7 @@ using UnityEngine;
 namespace naa.FirstPersonController.Player
 {
     [Serializable]
-    public class GroundSoundData
+    public class SoundData
     {
         public string GroundKey;
         public AudioClip[] Audio;

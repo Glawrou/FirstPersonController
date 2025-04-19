@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5580254308751297513}
   - component: {fileID: 2111163520695691163}
   m_Layer: 0
-  m_Name: GroundSoundStorage
+  m_Name: SoundStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fcf6f2f019dae478862841e529de78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundSoundDatas:
+  _soundDatas:
   - GroundKey: Stone
     Audio:
     - {fileID: 8300000, guid: 45be5704a0db11145ad056fbef5d9a21, type: 3}
@@ -52,7 +52,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fd247de1263e7b34a941e916b3daebc2, type: 3}
     - {fileID: 8300000, guid: 8d49d0d124d4bf742861e8b2936b7940, type: 3}
     - {fileID: 8300000, guid: cc1e0584b29fe7c4b9e0172f7a2558fa, type: 3}
-  - GroundKey: Grass
+  - GroundKey: Dirt
     Audio:
     - {fileID: 8300000, guid: b64bdf8f33b950a44a0bb53d7676b7e6, type: 3}
     - {fileID: 8300000, guid: 1a025da47a9d8da4a9da4e8bf8619e7c, type: 3}
@@ -63,3 +63,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9c6ec73b085541f4b912d3de602c771a, type: 3}
     - {fileID: 8300000, guid: 83fa270f28925c9468034f32ea805868, type: 3}
     - {fileID: 8300000, guid: ad5ce79f341cfb04082f2f1dfb24d9a7, type: 3}
+  - GroundKey: Jump
+    Audio:
+    - {fileID: 8300000, guid: 9c2d10072f1086a489b03beb14348ca0, type: 3}
+    - {fileID: 8300000, guid: 4e29b65e3cf92884e932ec4223504afd, type: 3}
+    - {fileID: 8300000, guid: a280df7fff6e5e7429c097c029636bee, type: 3}
+    - {fileID: 8300000, guid: fc0271db27828af4c81a285b24248a73, type: 3}
+    - {fileID: 8300000, guid: 4c24acc18ce627a44a1c721f9a688bfa, type: 3}

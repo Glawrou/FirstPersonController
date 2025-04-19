@@ -7,6 +7,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerGravity _playerGravity;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private PlayerTriggerGround _playerTriggerGround;
+        [SerializeField] private PlayerSound _playerSound;
 
         private const float OffsetUp = 0.4f;
 
@@ -46,6 +47,7 @@ namespace naa.FirstPersonController.Player
         {
             _characterController.Move(Vector3.up * offsetUp);
             _playerGravity.SetVelocity(gravityVelocity);
+            _playerSound.PlayJump();
         }
     }
 }
