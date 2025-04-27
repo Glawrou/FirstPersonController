@@ -9,6 +9,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerParameters _playerParameters;
 
         [Space]
+        [SerializeField] private PlayerCameraRay _playerCameraRay;
         [SerializeField] private PlayerCameraView _playerCameraView;
         [SerializeField] private PlayerHeadRotate _playerHeadRotate;
         [SerializeField] private PlayerBodyMove _playerBodyMove;
@@ -25,6 +26,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnSneaking += SnakingHandler;
             _inputObserver.OnUse += UseHandler;
             _playerAnimation.OnStep += StepHandler;
+            _playerCameraRay.OnChengeIsRayHit += ChengeRayHit;
         }
 
         private void Start()
@@ -77,6 +79,12 @@ namespace naa.FirstPersonController.Player
             _playerSound.PlayStep(value);
         }
 
+        private void ChengeRayHit(bool isHit)
+        {
+            var type = isHit ? SightType.Use : SightType.Default;
+            _playerCameraView.SetSight(type);
+        }
+
         private void OnDestroy()
         {
             _inputObserver.OnRotate -= RotateHandler;
@@ -86,6 +94,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnSneaking -= SnakingHandler;
             _inputObserver.OnUse -= UseHandler;
             _playerAnimation.OnStep -= StepHandler;
+            _playerCameraRay.OnChengeIsRayHit -= ChengeRayHit;
         }
     }
 }
