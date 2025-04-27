@@ -1,3 +1,4 @@
+using naa.FirstPersonController.InteractingObject;
 using naa.FirstPersonController.PlayerInput;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace naa.FirstPersonController.Player
         [SerializeField] private PlayerParameters _playerParameters;
 
         [Space]
+        [SerializeField] private PlayerHands _playerHands;
         [SerializeField] private PlayerCameraRay _playerCameraRay;
         [SerializeField] private PlayerCameraView _playerCameraView;
         [SerializeField] private PlayerHeadRotate _playerHeadRotate;
@@ -26,7 +28,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnSneaking += SnakingHandler;
             _inputObserver.OnUse += UseHandler;
             _playerAnimation.OnStep += StepHandler;
-            _playerCameraRay.OnChengeIsRayHit += ChengeRayHit;
+            _playerCameraRay.OnChangeDragAndDrop += ChengeRayHit;
         }
 
         private void Start()
@@ -69,8 +71,9 @@ namespace naa.FirstPersonController.Player
             _playerJump.Jump();
         }
 
-        private void UseHandler()
+        private void UseHandler(bool isUse)
         {
+            _playerHands.SetItem(isUse ? _playerCameraRay.DragAndDrop : null);
             _playerAnimation.SetTriggerUse();
         }
 
@@ -94,7 +97,7 @@ namespace naa.FirstPersonController.Player
             _inputObserver.OnSneaking -= SnakingHandler;
             _inputObserver.OnUse -= UseHandler;
             _playerAnimation.OnStep -= StepHandler;
-            _playerCameraRay.OnChengeIsRayHit -= ChengeRayHit;
+            _playerCameraRay.OnChangeDragAndDrop -= ChengeRayHit;
         }
     }
 }

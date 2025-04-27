@@ -2410,6 +2410,7 @@ MonoBehaviour:
     Stamina: 10
     ForceJump: 5
     IsDoubleJump: 0
+  _playerHands: {fileID: 1970392596800114516}
   _playerCameraRay: {fileID: 3128506919849696232}
   _playerCameraView: {fileID: 6798007177432313741}
   _playerHeadRotate: {fileID: 4023449943959648446}
@@ -3010,6 +3011,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd3472b574d0f64c889bb0ac4d7d296, type: 3}
+--- !u!114 &1970392596800114516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4688582922386851078, guid: 9bd3472b574d0f64c889bb0ac4d7d296, type: 3}
+  m_PrefabInstance: {fileID: 6505745375410801234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9521718e448bd0540832d0ab0fa6c73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3128506919849696232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8152567029459472826, guid: 9bd3472b574d0f64c889bb0ac4d7d296, type: 3}

@@ -80,7 +80,11 @@ namespace naa.FirstPersonController.PlayerInput
         {
             if (Input.GetKeyDown(_keyUse))
             {
-                UseInvoke();
+                UseInvoke(true);
+            }
+            else if (Input.GetKeyUp(_keyUse))
+            {
+                UseInvoke(false);
             }
         }
     }
